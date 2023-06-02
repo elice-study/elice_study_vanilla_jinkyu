@@ -1,0 +1,31 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+#header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    color: #ed217a;
+}
+
+.fa-fire{
+    font-size: 1.5rem;
+    margin-right: 0.2rem;
+}
+
+.logo__title{
+    font-size: 1.5rem;
+}
+
+.user__login{
+
+}

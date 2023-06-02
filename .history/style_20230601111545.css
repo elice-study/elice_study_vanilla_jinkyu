@@ -1,0 +1,63 @@
+/* Global setting */
+:root{
+    --color-accent: #fa327b;
+}
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+button{
+    cursor: pointer;
+}
+
+body{
+    background-color: black;
+}
+
+/* Header */
+#header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 4rem;
+}
+
+.logo{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: var(--color-accent);
+}
+
+.fa-fire{
+    font-size: 1.5rem;
+    margin-right: 0.2rem;
+}
+
+.logo__title{
+    font-size: 1.5rem;
+}
+
+.user__login{
+    background-color: white;
+    font-size: 1rem;
+    border-radius: 1rem;
+    border: none;
+    padding: 0.5rem 1rem;
+}
+/* Main */
+.banner{
+    width: 100%;
+    position: relative;
+}
+
+.slider{
+    position: relative;
+}

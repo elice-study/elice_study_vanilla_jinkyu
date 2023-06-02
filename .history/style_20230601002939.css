@@ -1,0 +1,34 @@
+:root{
+    --color-accent:#fc1605;
+    --color-white:#ffff;
+}
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+#header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--color-accent);
+    padding: 1rem;
+}
+
+.logo{
+    width: 30%;
+    display: flex;
+    align-items: center;
+    color: var(--color-white);
+}
+
+.logo > i{
+    font-size: 1rem;
+}
+
+h1{
+    font-family: 'Josefin Sans', sans-serif;
+}

@@ -1,0 +1,22 @@
+:root{
+    --color-accent:#fc1605;
+    --color-bg-header:
+}
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+#header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ededeb;
+}
+
+h1{
+    font-family: 'Josefin Sans', sans-serif;
+}
