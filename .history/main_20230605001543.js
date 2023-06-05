@@ -117,23 +117,14 @@ ul.addEventListener('click',(e)=>{
     document.querySelector('.play__btn').addEventListener('click',()=>{
         alert('❗️결제 후 이용하실 수 없습니다');
     });
+    document.querySelector('.logo').addEventListener('click',()=>{
+        list.removeChild(modalEl);
+        ul.classList.remove('hide');
+    });
 
     document.querySelector('.review__btn').addEventListener('click',(e)=>{
         const target =e.target.parentElement.parentElement.firstElementChild.textContent;
-        const reviewEl = document.createElement('div');
-        reviewEl.setAttribute('class','write__layout');
-        reviewEl.innerHTML = reviewTemplate(target);
-        list.prepend(reviewEl);
-        const writeTextarea = document.querySelector('.write__textarea');
-        writeTextarea.value = '';
-        document.querySelector('.write__cancell-btn').addEventListener('click',()=>{
-            list.removeChild(reviewEl);
-        });
-
-        document.querySelector('.write__form').addEventListener('submit',(e)=>{
-            e.preventDefault();
-            writeTextarea.value = '';
-        })
+        console.log(target);
     })
 });
 
@@ -187,16 +178,15 @@ function modalTemplate(movie){
     `
 }
 
-
-
 function reviewTemplate(title){
     return `
+    <div class="write__layout">
     <div class="write">
         <header class="write__header">
             <h4>감상평 작성하기</h4>
             <button class="write__cancell-btn">ⅹ</button>
         </header>
-        <div class="write__title">${title}</div>
+        <div class="write__title">하트시그널 4</div>
         <div class="write__grade">
             <i class="fa fa-star"></i>
             <i class="fa fa-star"></i>
@@ -220,5 +210,6 @@ function reviewTemplate(title){
             <button class="registration-btn">등록하기</button>
         </form>
     </div>
+</div>
     `;
 }

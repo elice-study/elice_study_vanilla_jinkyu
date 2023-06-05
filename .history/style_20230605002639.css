@@ -451,7 +451,6 @@ li.movie:hover{
     background-color: #383838;
     z-index: 2;
     padding: 1.4rem 1.2rem;
-    border-radius: 1rem;
 }
 
 .write__header{

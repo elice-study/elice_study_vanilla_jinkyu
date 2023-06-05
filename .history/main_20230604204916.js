@@ -8,10 +8,8 @@ const headerRect = header.getBoundingClientRect();
 const list = document.querySelector('#list');
 const login = document.querySelector('.user__login');
 
-
-
 login.addEventListener('click',()=>{
-    alert('로그인 기능 X');
+    alert('로그인 기능 준비중..');
 })
 
 watchBtn.addEventListener('click',()=>{
@@ -103,7 +101,6 @@ ul.addEventListener('click',(e)=>{
     const data = localStorage.getItem('movies');
     const movies = data && JSON.parse(data);
     const modalMovie = movies.filter((movie)=> src.includes(movie.posterImageFileName));
-    
     const modalEl = document.createElement('div');
     modalEl.setAttribute('class','modal__layout');
     modalEl.innerHTML = modalTemplate(modalMovie[0]);
@@ -117,24 +114,6 @@ ul.addEventListener('click',(e)=>{
     document.querySelector('.play__btn').addEventListener('click',()=>{
         alert('❗️결제 후 이용하실 수 없습니다');
     });
-
-    document.querySelector('.review__btn').addEventListener('click',(e)=>{
-        const target =e.target.parentElement.parentElement.firstElementChild.textContent;
-        const reviewEl = document.createElement('div');
-        reviewEl.setAttribute('class','write__layout');
-        reviewEl.innerHTML = reviewTemplate(target);
-        list.prepend(reviewEl);
-        const writeTextarea = document.querySelector('.write__textarea');
-        writeTextarea.value = '';
-        document.querySelector('.write__cancell-btn').addEventListener('click',()=>{
-            list.removeChild(reviewEl);
-        });
-
-        document.querySelector('.write__form').addEventListener('submit',(e)=>{
-            e.preventDefault();
-            writeTextarea.value = '';
-        })
-    })
 });
 
 function modalTemplate(movie){
@@ -153,7 +132,6 @@ function modalTemplate(movie){
             <div class="modal__btn">
                 <button class="play__btn">재생하기</button>
                 <button class="close__btn">돌아가기</button>
-                <button class="review__btn">리뷰쓰기</button>
             </div>
             <p class="director">감독: ${creator}</p>
             <p class="actor">출연: ${castMembers}</p>
@@ -163,13 +141,13 @@ function modalTemplate(movie){
     <ul class="modal__review">
             <li class="review__row">
                 <div class="row__grade">
-                    <i class="fa fa-star active"></i>
-                    <i class="fa fa-star active"></i>
-                    <i class="fa fa-star active"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
                     <i class="fa fa-star"></i>
                 </div>
-                <div class="row__text">재밌어용 강추강추</div>
+                <div class="row__text"></div>
                 <div class="row__description">
                     <span class="name">Elice</span>
                     <span class="date">2023년 06월 04일</span>
@@ -187,38 +165,3 @@ function modalTemplate(movie){
     `
 }
 
-
-
-function reviewTemplate(title){
-    return `
-    <div class="write">
-        <header class="write__header">
-            <h4>감상평 작성하기</h4>
-            <button class="write__cancell-btn">ⅹ</button>
-        </header>
-        <div class="write__title">${title}</div>
-        <div class="write__grade">
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-            <i class="fa fa-star"></i>
-        </div>
-        <form class="write__form">
-            <textarea
-            class="write__textarea"
-            placeholder="이 콘텐츠의 어떤 점이 좋거나 싫었는지 다른 사용자들에게 알려주세요. 고객님의 리뷰는 다른 사용자들에게 큰 도움이 됩니다."
-            >
-            </textarea>
-            <div class="check">
-                <p>감상평에 스포일러가 포함되어 있나요?</p>
-                <div class="related">
-                    <label class="check-label" for="checkbox">없음</label>
-                    <input type="checkbox" id="checkbox">
-                </div>
-            </div>
-            <button class="registration-btn">등록하기</button>
-        </form>
-    </div>
-    `;
-}

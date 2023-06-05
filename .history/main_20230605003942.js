@@ -117,6 +117,10 @@ ul.addEventListener('click',(e)=>{
     document.querySelector('.play__btn').addEventListener('click',()=>{
         alert('❗️결제 후 이용하실 수 없습니다');
     });
+    document.querySelector('.logo').addEventListener('click',()=>{
+        list.removeChild(modalEl);
+        ul.classList.remove('hide');
+    });
 
     document.querySelector('.review__btn').addEventListener('click',(e)=>{
         const target =e.target.parentElement.parentElement.firstElementChild.textContent;
@@ -130,9 +134,13 @@ ul.addEventListener('click',(e)=>{
             list.removeChild(reviewEl);
         });
 
+        document.querySelector('.logo').addEventListener('click',()=>{
+            list.removeChild(reviewEl);
+            ul.classList.remove('hide');
+        });
+
         document.querySelector('.write__form').addEventListener('submit',(e)=>{
             e.preventDefault();
-            writeTextarea.value = '';
         })
     })
 });
